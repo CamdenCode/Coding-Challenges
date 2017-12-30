@@ -31,9 +31,17 @@ void draw() {
   float y3 = y2 + (0.375 * r * sin(angle1 * 16 - HALF_PI));
   ellipse(x3, y3, r/4, r/4);
   
+  float x4 = x3 + (0.375/2 * r * cos(-angle1 * 64 - HALF_PI));
+  float y4 = y3 + (0.375/2 * r * sin(-angle1 * 64 - HALF_PI));
+  ellipse(x4, y4, r/8, r/8);
+  
+  float x5 = x4 + (0.375/4 * r * cos(angle1 * 256 - HALF_PI));
+  float y5 = y4 + (0.375/4 * r * sin(angle1 * 256 - HALF_PI));
+  ellipse(x5, y5, r/16, r/16);
+  
   float[] point = new float[2];
-  point[0] = x3;
-  point[1] = y3;
+  point[0] = x5;
+  point[1] = y5;
   path.add(point);
   
   for(int i = 0; i < path.size()-1; i++){
@@ -41,6 +49,6 @@ void draw() {
      line(path.get(i)[0], path.get(i)[1], path.get(i+1)[0], path.get(i + 1)[1]);
   }
   
-  angle1 -= HALF_PI / 128;
+  angle1 -= HALF_PI / 256;
 
 }
